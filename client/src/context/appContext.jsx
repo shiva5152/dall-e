@@ -38,10 +38,17 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   
   const [state, dispatch] = useReducer(reducer,initialState);
+  // axiso --base url
+  const instance = axios.create({
+    // development-> baseURL: 'abc/api/v1' or actul url of backend eg->https//backend.com,
+    // production
+    baseURL: '/api/v1',
+    
+  });
     const getAllPost=async()=>{
       dispatch({type:GET_ALL_POST_BEGIN});
       try {
-        const {data}= await axios.get('/abc/api/v1/post')
+        const {data}= await instance.get('/post')
         dispatch({type:GET_ALL_POST_SUCESS,
           payload:data.data
         })
@@ -52,7 +59,7 @@ const AppProvider = ({ children }) => {
     const getUserPost=async()=>{
       dispatch({type:GET_USER_POST_BEGIN});
       try {
-        const {data}= await axios.get('/abc/api/v1/post/myPost')
+        const {data}= await instance.get('/post/myPost')
         dispatch({type:GET_USER_POST_SUCESS,
           payload:data.data
         })
@@ -65,7 +72,7 @@ const AppProvider = ({ children }) => {
     }
     
     const logoutUser =async()=>{
-      await axios.get('/abc/api/v1/auth/logout');
+      await instance.get('/auth/logout');
       dispatch({type:LOGOUT_USER});
       
       
@@ -74,7 +81,7 @@ const AppProvider = ({ children }) => {
     const signInUser=async (currUser)=>{
       dispatch({type:SIGNIN_USER_BEGIN});
       try {
-        const {data}= await axios.post('/abc/api/v1/auth/signin',currUser);
+        const {data}= await instance.post('/auth/signin',currUser);
           dispatch({
             type:SIGNIN_USER_SUCESS,
             payload:data.user
@@ -92,7 +99,7 @@ const AppProvider = ({ children }) => {
       dispatch({type:LOGIN_USER_BEGIN});
       
       try{
-        const {data} =await axios.post('/abc/api/v1/auth/login',currUser);
+        const {data} =await instance.post('/auth/login',currUser);
         
         dispatch({ 
           type:LOGIN_USER_SUCESS,
@@ -111,7 +118,7 @@ const AppProvider = ({ children }) => {
     const getCurrUser=async()=>{
         dispatch({type:GET_USER_BEGIN});
         try{
-          const {data}= await axios.get('/abc/api/v1/auth/getCurrUser');
+          const {data}= await instance.get('/auth/getCurrUser');
           dispatch({
             type:GET_USER_SUCCESS,
             payload:data.user

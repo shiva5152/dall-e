@@ -33,7 +33,7 @@ const CreatePost = () => {
     photo:"",
     resolution:"512x512"
   })
-
+  const [flag,setFlag]=useState(false);
   const [generatingImg,setGeneratingImg] =useState(false);
   const [loading,setLoading]=useState(false);
 
@@ -41,10 +41,11 @@ const CreatePost = () => {
     if(form.prompt){
       try {
         setGeneratingImg(true);
-        const {data}= await axios.post('/abc/api/v1/dalle',{prompt:form.prompt,resolution:form.resolution});
+        const {data}= await axios.post('/api/v1/dalle',{prompt:form.prompt,resolution:form.resolution});
         
         setForm({...form,photo:`data:image/jpeg;base64,${data.photo}`});
-        await axios.post('/abc/api/v1/post',{...form,name:user.name,userId:user._id});
+       if(flag) await axios.post('/api/v1/post',{...form,name:user.name,userId:user._id});
+       setFlag(true);
       } catch (error) {
         alert(error);
       } finally{
@@ -61,7 +62,7 @@ const CreatePost = () => {
     if(form.prompt && form.photo){
       setLoading(true);
       try {
-        await axios.post('/abc/api/v1/post',{...form,name:user.name,userId:user._id});
+        await axios.post('/api/v1/post',{...form,name:user.name,userId:user._id});
         
          alert('Success');
          navigate('/');

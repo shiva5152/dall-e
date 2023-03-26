@@ -7,7 +7,7 @@ export default defineConfig({
   server:{
     proxy: {
       '/abc': {
-        target: 'http://localhost:8080',
+        target: 'https://dalle-clone-backend-196n.onrender.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/abc/, '')
       }
