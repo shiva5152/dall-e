@@ -49,13 +49,13 @@ const Register = () => {
     setUser({...user,[e.target.name]:e.target.value})
 
   }
-  // if(isLoading){
-  //   return (
-  //     <div className="absolute inset-0 z-0 flex justify-center items-center rounded-lg">
-  //       <Loader />
-  //     </div>
-  //   )
-  // }
+   if(isLoading){
+     return (
+       <div className="absolute inset-0 z-0 flex justify-center items-center rounded-lg">
+         <Loader />
+       </div>
+     )
+  }
   return (
     <div className='h-screen w-full'>
      <form onSubmit={onSubmit} className='flex items-center justify-center flex-col h-full '>
