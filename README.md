@@ -11,6 +11,8 @@ About the tech
 * includes tech like React-vite, node-expressjs, mongoDB-mongoose.
 * OPEN AI API in backend.
 
-Chetk This now (https://dalle-clone-backend-196n.onrender.com/)
+Thanks feel free to give it a star, Chetk This now [DALL.E Clone](https://dalle-clone-backend-196n.onrender.com/)
+
+*since the hosting is not paid so this(application) may take time in first load*
 
 
