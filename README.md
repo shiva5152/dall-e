@@ -15,4 +15,6 @@ Thanks feel free to give it a star, Chetk This now [DALL.E Clone](https://dalle-
 
 *since the hosting is not paid so this(application) may take time in first load*
 
+![preview](https://res.cloudinary.com/dnfzwjyfx/image/upload/v1681365606/dalle_pic_jdhfxi.png)
+
 
