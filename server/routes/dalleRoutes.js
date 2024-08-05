@@ -1,10 +1,9 @@
-import express from 'express';
-import dalleRequest from '../controllers/dalleController.js';
-import isAuthenticatedUser from '../middleware/auth.js';
+import express from "express";
+import dalleRequest from "../controllers/dalleController.js";
+import isAuthenticatedUser from "../middleware/auth.js";
 
-const router =express.Router();
+const router = express.Router();
 
-router.route('/').post(isAuthenticatedUser,dalleRequest)
-
+router.route("/").post(dalleRequest);
 
 export default router;
