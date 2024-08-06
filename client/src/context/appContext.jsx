@@ -22,6 +22,8 @@ import {
 } from "./action";
 import React, { useReducer, useContext, useEffect } from "react";
 
+const baseURL = import.meta.env.VITE_API_BASE_URL;
+
 export const initialState = {
   isLoading: false,
   isAuthenticated: false,
@@ -35,9 +37,10 @@ const AppContext = React.createContext();
 
 export const instance = axios.create({
   // development
-  // baseURL: "abc/api/v1", //or actul url of backend eg->https//backend.com,
+  // baseURL: "server/api/v1", //or actul url of backend eg->https//backend.com,
   // production
-  baseURL: "/api/v1",
+  baseURL: baseURL,
+  withCredentials: true,
 });
 
 const AppProvider = ({ children }) => {
