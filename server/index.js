@@ -34,7 +34,7 @@ app.get("/", async (req, res) => {
   res.send("Hello from Dall-E!");
 });
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
+  response.sendFile(path.resolve(__dirname, "../client/dist", "index.html"));
 });
 
 // error middleware
