@@ -37,7 +37,7 @@ export const instance = axios.create({
   // development
   // baseURL: "abc/api/v1", //or actul url of backend eg->https//backend.com,
   // production
-  baseURL: "server/api/v1",
+  baseURL: "/api/v1",
 });
 
 const AppProvider = ({ children }) => {
