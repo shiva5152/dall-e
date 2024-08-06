@@ -6,11 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/abc": {
+      "/server": {
         target: "https://dalle-clone-backend-196n.onrender.com",
         // target: "http://localhost:8080",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/abc/, ""),
+        rewrite: (path) => path.replace(/^\/server/, ""),
       },
     },
   },
