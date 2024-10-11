@@ -65,10 +65,10 @@ const sendToken = (user, statusCode, res) => {
   // option for cookie ->yet to be understand
   // one day=24*60*60*1000
   const options = {
-    httpOnly: true,
+    httpOnly: process.env.NODE_ENV === "production",
     expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
     secure: process.env.NODE_ENV === "production",
-    sameSite: "none",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
   };
   res.status(statusCode).cookie("token", token, options).json({
     success: true,
