@@ -28,6 +28,10 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/post", postRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
 
+app.use("/",(req,res)=>{
+  res.send("test-route")
+})
+
 // error middleware
 app.use(errorMiddleware);
 
